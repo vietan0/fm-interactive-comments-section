@@ -5,7 +5,13 @@ import { useContext, useEffect, useRef } from 'react';
 import { ThreadContext } from '../contexts/ThreadContext';
 
 function CommentForm({
-  reply, editing, ownId, commentText, setCommentText, saveFunction,
+  reply,
+  editing,
+  replyingTo,
+  ownId,
+  commentText,
+  setCommentText,
+  saveFunction,
 }) {
   const rootComment = useContext(ThreadContext);
   const textareaRef = useRef(null);
@@ -33,7 +39,6 @@ function CommentForm({
         onClick={() => {
           if (editing) saveFunction(ownId, commentText); // update comment
           else {
-            const replyingTo = reply ? rootComment.user.username : undefined;
             saveFunction(commentText, rootComment.id, replyingTo);
           } // add comment
         }}
@@ -47,6 +52,7 @@ function CommentForm({
 CommentForm.propTypes = {
   reply: bool,
   editing: bool,
+  replyingTo: string,
   ownId: string,
   commentText: string.isRequired,
   setCommentText: func.isRequired,
@@ -56,6 +62,7 @@ CommentForm.propTypes = {
 CommentForm.defaultProps = {
   reply: false,
   editing: false,
+  replyingTo: '',
   ownId: undefined,
 };
 

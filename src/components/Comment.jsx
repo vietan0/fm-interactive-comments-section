@@ -81,7 +81,12 @@ function Comment({ comment, isAReply }) {
           )}
         </div>
       </div>
-      {isReplying && <AddAComment reply />}
+      {isReplying && (
+        <AddAComment
+          reply
+          replyingTo={comment.user.username}
+        />
+      )}
       {popupShown && (
         <Popup
           commentId={comment.id}

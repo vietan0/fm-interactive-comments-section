@@ -1,16 +1,14 @@
 import { useContext, useState } from 'react';
-import { bool } from 'prop-types';
+import { bool, string } from 'prop-types';
 import CommentForm from './CommentForm';
 import { CommentsContext } from '../contexts/CommentsContext';
-import { ThreadContext } from '../contexts/ThreadContext';
 
-function AddAComment({ reply }) {
-  const rootComment = useContext(ThreadContext);
+function AddAComment({ reply, replyingTo }) {
   const { currentUser, addComment } = useContext(CommentsContext);
   const [commentText, setCommentText] = useState(
     // if there is a rootComment
     // (which mean the one we're adding is a reply)
-    rootComment ? `@${rootComment.user.username} ` : '',
+    replyingTo ? `@${replyingTo} ` : '',
   );
 
   return (
@@ -24,6 +22,7 @@ function AddAComment({ reply }) {
       )}
       <CommentForm
         reply={reply}
+        replyingTo={replyingTo}
         commentText={commentText}
         setCommentText={setCommentText}
         // eslint-disable-next-line react/jsx-no-bind
@@ -35,10 +34,12 @@ function AddAComment({ reply }) {
 
 AddAComment.propTypes = {
   reply: bool,
+  replyingTo: string,
 };
 
 AddAComment.defaultProps = {
   reply: false,
+  replyingTo: '',
 };
 
 export default AddAComment;
