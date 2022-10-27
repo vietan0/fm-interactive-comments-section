@@ -1,0 +1,50 @@
+@use "vars";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+  line-height: 1.5;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+input,
+textarea,
+button,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+textarea {
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid vars.$lightblue;
+  resize: none;
+}
+
+pre {
+  white-space: pre-wrap;
+}
