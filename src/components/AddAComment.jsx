@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
 import { bool } from 'prop-types';
-import { CommentsContext } from '../CommentsContext';
 import CommentForm from './CommentForm';
-import { ThreadContext } from '../ThreadContext';
+import { CommentsContext } from '../contexts/CommentsContext';
+import { ThreadContext } from '../contexts/ThreadContext';
 
 function AddAComment({ reply }) {
   const rootComment = useContext(ThreadContext);

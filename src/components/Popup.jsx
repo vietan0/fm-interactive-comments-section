@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 import { useContext, useEffect, useRef } from 'react';
 import { string, func } from 'prop-types';
-import { CommentsContext } from '../CommentsContext';
+import { CommentsContext } from '../contexts/CommentsContext';
 
 function Popup({ commentId, setPopupShown }) {
   const { deleteComment } = useContext(CommentsContext);

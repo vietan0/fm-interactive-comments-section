@@ -3,7 +3,7 @@ import {
   shape, string, number, object, array,
 } from 'prop-types';
 import Comment from './Comment';
-import ThreadProvider from '../ThreadContext';
+import ThreadProvider from '../contexts/ThreadContext';
 
 function Thread({ rootComment }) {
   return (

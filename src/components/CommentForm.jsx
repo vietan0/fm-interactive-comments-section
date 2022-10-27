@@ -2,7 +2,7 @@
 /* eslint-disable react/forbid-prop-types */
 import { bool, func, string } from 'prop-types';
 import { useContext, useEffect, useRef } from 'react';
-import { ThreadContext } from '../ThreadContext';
+import { ThreadContext } from '../contexts/ThreadContext';
 
 function CommentForm({
   reply, editing, ownId, commentText, setCommentText, saveFunction,

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { nanoid } from 'nanoid';
 import Thread from './Thread';
-import { CommentsContext } from '../CommentsContext';
+import { CommentsContext } from '../contexts/CommentsContext';
 
 function CommentList() {
   const { comments } = useContext(CommentsContext);

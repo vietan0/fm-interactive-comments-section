@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import CommentsProvider from './CommentsContext';
+import CommentsProvider from './contexts/CommentsContext';
 import App from './App';
 import './index.scss';
 

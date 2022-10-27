@@ -4,7 +4,7 @@ import {
   bool, shape, number, string, object, array,
 } from 'prop-types';
 import { useContext, useState } from 'react';
-import { CommentsContext } from '../CommentsContext';
+import { CommentsContext } from '../contexts/CommentsContext';
 import ActionButton from './ActionButton';
 import AddAComment from './AddAComment';
 import CommentForm from './CommentForm';
