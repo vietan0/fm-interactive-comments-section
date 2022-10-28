@@ -25,7 +25,7 @@ body {
 }
 
 .App {
-  margin: 3rem;
+  margin: 1.5rem;
   flex-grow: 1;
   max-width: 680px;
   @include vars.flex(1, column);
@@ -65,7 +65,7 @@ body {
 .comment {
   background-color: vars.$white;
   border-radius: 4px;
-  padding: 1.25rem 1.5rem;
+  padding: 1rem;
   @include vars.flex(1, _, _, flex-start);
 }
 
@@ -106,11 +106,11 @@ body {
         }
 
         &:hover {
-          outline: 1px solid  vars.$lightblue;
+          outline: 1px solid vars.$lightblue;
         }
-        
+
         &:active {
-          outline: 1px solid  vars.$blue;
+          outline: 1px solid vars.$blue;
         }
       }
     }
@@ -185,6 +185,7 @@ form {
     border: none;
     width: 80px;
     height: 40px;
+
     &:disabled {
       opacity: 0.5;
     }
@@ -234,4 +235,16 @@ form {
     border-radius: 4px;
     padding: 0.5rem;
   }
+}
+
+@media (min-width: 450px) {
+  .App {
+    margin: 3rem;
+  }
+
+  .addAComment,
+  .comment {
+    padding: 1.25rem 1.5rem;
+  }
+
 }
