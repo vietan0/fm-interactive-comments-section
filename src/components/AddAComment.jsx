@@ -1,9 +1,9 @@
 import { useContext, useState } from 'react';
-import { bool, string } from 'prop-types';
+import { bool, func, string } from 'prop-types';
 import CommentForm from './CommentForm';
 import { CommentsContext } from '../contexts/CommentsContext';
 
-function AddAComment({ reply, replyingTo }) {
+function AddAComment({ reply, replyingTo, setIsReplying }) {
   const { currentUser, addComment } = useContext(CommentsContext);
   const [commentText, setCommentText] = useState(
     // if there is a rootComment
@@ -23,6 +23,7 @@ function AddAComment({ reply, replyingTo }) {
       <CommentForm
         reply={reply}
         replyingTo={replyingTo}
+        setIsReplying={setIsReplying}
         commentText={commentText}
         setCommentText={setCommentText}
         // eslint-disable-next-line react/jsx-no-bind
@@ -35,11 +36,13 @@ function AddAComment({ reply, replyingTo }) {
 AddAComment.propTypes = {
   reply: bool,
   replyingTo: string,
+  setIsReplying: func,
 };
 
 AddAComment.defaultProps = {
   reply: false,
   replyingTo: '',
+  setIsReplying: undefined,
 };
 
 export default AddAComment;

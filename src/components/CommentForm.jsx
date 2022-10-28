@@ -8,6 +8,7 @@ function CommentForm({
   reply,
   editing,
   replyingTo,
+  setIsReplying,
   ownId,
   commentText,
   setCommentText,
@@ -15,6 +16,16 @@ function CommentForm({
 }) {
   const rootComment = useContext(ThreadContext);
   const textareaRef = useRef(null);
+
+  function save() {
+    if (editing) saveFunction(ownId, commentText); // update comment
+    else saveFunction(commentText, rootComment.id, replyingTo); // add comment
+  }
+
+  function handleKeyDown(e) {
+    if (e.key === 'Escape') setIsReplying(false);
+    if (e.key === 'Enter') save();
+  }
 
   useEffect(() => {
     if (reply || editing) {
@@ -30,18 +41,14 @@ function CommentForm({
         onChange={(e) => {
           setCommentText(e.target.value);
         }}
+        onKeyDown={handleKeyDown}
         placeholder={reply ? 'Reply...' : 'Add a comment...'}
         ref={textareaRef}
       />
       <button
         type="button"
         disabled={commentText === ''}
-        onClick={() => {
-          if (editing) saveFunction(ownId, commentText); // update comment
-          else {
-            saveFunction(commentText, rootComment.id, replyingTo);
-          } // add comment
-        }}
+        onClick={save}
       >
         {reply ? 'Reply' : editing ? 'Update' : 'Send'}
       </button>
@@ -53,6 +60,7 @@ CommentForm.propTypes = {
   reply: bool,
   editing: bool,
   replyingTo: string,
+  setIsReplying: func,
   ownId: string,
   commentText: string.isRequired,
   setCommentText: func.isRequired,
@@ -63,6 +71,7 @@ CommentForm.defaultProps = {
   reply: false,
   editing: false,
   replyingTo: '',
+  setIsReplying: undefined,
   ownId: undefined,
 };
 

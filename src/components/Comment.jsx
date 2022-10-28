@@ -85,6 +85,7 @@ function Comment({ comment, isAReply }) {
         <AddAComment
           reply
           replyingTo={comment.user.username}
+          setIsReplying={setIsReplying}
         />
       )}
       {popupShown && (

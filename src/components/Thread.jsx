@@ -13,16 +13,17 @@ function Thread({ rootComment }) {
           comment={rootComment}
           key={rootComment.id}
         />
-        <div className="replies">
-          {rootComment.replies
-            && rootComment.replies.map((reply) => (
+        {rootComment.replies && (
+          <div className="replies">
+            {rootComment.replies.map((reply) => (
               <Comment
                 comment={reply}
                 isAReply
                 key={reply.id}
               />
             ))}
-        </div>
+          </div>
+        )}
       </div>
     </ThreadProvider>
   );
