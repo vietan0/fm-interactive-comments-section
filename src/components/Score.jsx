@@ -29,6 +29,7 @@ function Score({ score }) {
         type="button"
         onClick={upvote}
         className={modified === 'upvoted' ? 'selected' : ''}
+        aria-label="upvote"
       >
         <i className="ri-add-line" />
       </button>
@@ -37,6 +38,7 @@ function Score({ score }) {
         type="button"
         onClick={downvote}
         className={modified === 'downvoted' ? 'selected' : ''}
+        aria-label="downvote"
       >
         <i className="ri-subtract-line " />
       </button>

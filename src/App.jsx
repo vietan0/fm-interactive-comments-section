@@ -3,7 +3,10 @@ import CommentList from './components/CommentList';
 
 function App() {
   return (
-    <div className="App">
+    <main className="App">
+      <h1 className="sr-only">
+        Interactive comments section - Frontend Mentor Challenge - Solution by Viet An
+      </h1>
       <CommentList />
       <AddAComment />
       <div className="attribution">
@@ -26,7 +29,7 @@ function App() {
           Việt An
         </a>
       </div>
-    </div>
+    </main>
   );
 }
 
