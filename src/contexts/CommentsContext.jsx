@@ -130,7 +130,7 @@ function CommentsProvider({ children }) {
     // first load
     (async function fetchAndSet() {
       const res = await fetch(
-        'https://gist.githubusercontent.com/vietan0/0baa7ea3fb7303637001c6db28b10901/raw',
+        'https://gist.githubusercontent.com/vietan0/0baa7ea3fb7303637001c6db28b10901/raw/b89325e6a39d1c82a8f888d32839623a600d8e51/commentData.json',
       );
       const obj = await res.json();
       setComments(obj.comments);
